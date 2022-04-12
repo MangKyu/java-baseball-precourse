@@ -90,4 +90,18 @@ class GameInputReaderTest {
         result.isInstanceOf(IllegalArgumentException.class);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"119", "144", "717"})
+    void 번호를입력하여공을반환실패_중복된값이포함됨(final String input) {
+        // given
+        console.when(Console::readLine)
+                .thenReturn(input);
+
+        // when
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+
+        // then
+        result.isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

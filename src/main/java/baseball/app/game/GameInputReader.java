@@ -1,11 +1,7 @@
 package baseball.app.game;
 
-import baseball.app.ball.Ball;
 import baseball.app.ball.Balls;
 import camp.nextstep.edu.missionutils.Console;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 
@@ -25,15 +21,11 @@ public class GameInputReader {
     }
 
     private static Balls createBalls(final String[] inputs) {
-        return new Balls(createBallList(inputs));
-    }
-
-    private static List<Ball> createBallList(final String[] inputs) {
-        final List<Ball> ballList = new ArrayList<>(MAX_BALL_COUNT);
+        final Balls balls = new Balls();
         for (int i = 0; i < MAX_BALL_COUNT; i++) {
-            ballList.add(new Ball(inputs[i]));
+            balls.add(inputs[i]);
         }
-        return ballList;
+        return balls;
     }
 
 }

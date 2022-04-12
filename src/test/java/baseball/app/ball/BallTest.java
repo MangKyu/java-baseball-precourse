@@ -1,6 +1,7 @@
 package baseball.app.ball;
 
 import org.assertj.core.api.AbstractThrowableAssert;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -43,6 +44,35 @@ class BallTest {
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
+    void equalsHashCode가동일함() {
+        // given
+        final String input = "1";
+        final Ball ball = new Ball(input);
+
+        // when
+        final Ball result = new Ball(input);
+
+        // then
+        assertThat(result).isEqualTo(ball);
+        assertThat(result.hashCode()).isEqualTo(ball.hashCode());
+    }
+
+    @Test
+    void equalsHashCode가다름() {
+        // given
+        final String input = "1";
+        final Ball ball = new Ball(input);
+
+        // when
+        final Ball result = new Ball("9");
+
+        // then
+        assertThat(result).isNotEqualTo(ball);
+        assertThat(result.hashCode()).isNotEqualTo(ball.hashCode());
     }
 
 }
