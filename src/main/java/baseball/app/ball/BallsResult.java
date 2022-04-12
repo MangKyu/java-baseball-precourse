@@ -37,7 +37,7 @@ public class BallsResult {
     private void appendJudgeStatus(final StringBuilder stringBuilder, final BallJudgeStatus status) {
         final int result = this.result.get(status);
         if (result != 0 && status.isAppendView()) {
-            stringBuilder.append(result).append(status.getPrintName());
+            stringBuilder.append(result).append(status.getPrintName()).append(" ");
         }
     }
 

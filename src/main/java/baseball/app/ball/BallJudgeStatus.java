@@ -2,8 +2,8 @@ package baseball.app.ball;
 
 public enum BallJudgeStatus {
 
-    STRIKE("스트라이크", true),
     BALL("볼", true),
+    STRIKE("스트라이크", true),
     NOTHING("낫싱", false),
     ;
 
