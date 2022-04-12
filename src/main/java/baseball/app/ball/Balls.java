@@ -27,4 +27,23 @@ public class Balls {
                 .getNumber();
     }
 
+    public BallsResult calculateResult(final Balls targetBalls) {
+        final BallsResult ballsResult = new BallsResult();
+        for (final Ball ball : targetBalls.ballList) {
+            ballsResult.addResult(judgeStatus(ball));
+        }
+
+        return ballsResult;
+    }
+
+    private BallJudgeStatus judgeStatus(final Ball targetBall) {
+        if (!this.ballList.contains(targetBall)) {
+            return BallJudgeStatus.NOTHING;
+        }
+
+        final int index = ballList.indexOf(targetBall);
+        final Ball ball = ballList.get(index);
+        return ball.judgeStatus(targetBall);
+    }
+
 }

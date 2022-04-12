@@ -25,8 +25,9 @@ public abstract class AbstractBallsGenerator implements BallsGenerator {
 
     private List<Ball> convertToBallList(final List<Number> numberList) {
         final List<Ball> ballList = new ArrayList<>(numberList.size());
-        for (final Number value : numberList) {
-            ballList.add(new Ball(value));
+        for (int i = 0, numberListSize = numberList.size(); i < numberListSize; i++) {
+            final Number value = numberList.get(i);
+            ballList.add(new Ball(value, i));
         }
         return ballList;
     }
