@@ -13,7 +13,7 @@ public class GameInputReader {
 
     public Balls inputBalls() {
         final String[] inputs = splitInputs(Console.readLine());
-        if (inputs.length < MAX_BALL_COUNT) {
+        if (inputs.length != MAX_BALL_COUNT) {
             throw new IllegalArgumentException("Input ball number is under " + MAX_BALL_COUNT);
         }
 

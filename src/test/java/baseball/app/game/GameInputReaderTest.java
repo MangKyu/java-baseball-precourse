@@ -1,8 +1,8 @@
 package baseball.app.game;
 
 import baseball.app.ball.Balls;
-import baseball.app.game.GameInputReader;
 import camp.nextstep.edu.missionutils.Console;
+import org.assertj.core.api.AbstractThrowableAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 
 import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GameInputReaderTest {
 
@@ -30,8 +31,8 @@ class GameInputReaderTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"231", "451", "2514", "962756", "8234"})
-    void 번호를입력하여공을반환(final String input) {
+    @ValueSource(strings = {"231", "451", "254", "962", "823"})
+    void 번호를입력하여공을반환성공(final String input) {
         // given
         final String[] inputs = input.split("");
 
@@ -45,6 +46,22 @@ class GameInputReaderTest {
         for (int i = 0; i < MAX_BALL_COUNT; i++) {
             assertThat(result.get(i)).isEqualTo(Integer.parseInt(inputs[i]));
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "23", "4", "2546", "96945"})
+    void 번호를입력하여공을반환실패_3개가아닌입력값(final String input) {
+        // given
+        final String[] inputs = input.split("");
+
+        console.when(Console::readLine)
+                .thenReturn(input);
+
+        // when
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+
+        // then
+        result.isInstanceOf(IllegalArgumentException.class);
     }
 
 }
