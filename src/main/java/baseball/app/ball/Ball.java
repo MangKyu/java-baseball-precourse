@@ -6,9 +6,17 @@ public class Ball {
 
     private final Number number;
 
+    public Ball(final int number) {
+        this.number = new Number(number);
+    }
+
     public Ball(final String input) {
+        this.number = convertToNumber(input);
+    }
+
+    private Number convertToNumber(final String input) {
         try {
-            this.number = new Number(Integer.parseInt(input));
+            return new Number(Integer.parseInt(input));
         } catch (final NumberFormatException e) {
             throw new IllegalArgumentException("Input is not an integer: " + input, e);
         }

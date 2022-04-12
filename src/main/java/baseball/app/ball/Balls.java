@@ -16,6 +16,11 @@ public class Balls {
         add(ball);
     }
 
+    public void add(final int input) {
+        final Ball ball = new Ball(input);
+        add(ball);
+    }
+
     private void add(final Ball ball) {
         if (ballList.contains(ball)) {
             throw new IllegalArgumentException("Input value is duplicated: " + ball.getNumber());
