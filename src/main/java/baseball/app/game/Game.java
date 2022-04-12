@@ -1,6 +1,7 @@
 package baseball.app.game;
 
 import baseball.app.ball.Balls;
+import baseball.app.printer.GameView;
 
 public class Game {
 
@@ -18,6 +19,7 @@ public class Game {
             startGame();
             quit = quitGame();
         }
+        GameView.printQuitGame();
     }
 
     private void startGame() {
