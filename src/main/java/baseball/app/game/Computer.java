@@ -10,11 +10,14 @@ import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 
 public class Computer {
 
-    private final Balls balls;
+    private Balls balls;
     private final BallsGenerator ballsGenerator;
 
     public Computer(final BallsGenerator ballsGenerator) {
         this.ballsGenerator = ballsGenerator;
+    }
+
+    public void prepareGame() {
         this.balls = ballsGenerator.generate();
     }
 

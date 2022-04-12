@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.AbstractThrowableAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
@@ -100,6 +101,49 @@ class PlayerTest {
 
         // when
         final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+
+        // then
+        result.isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
+    void 번호를입력하여게임메뉴를반환성공_계속게임하기() {
+        // given
+        console.when(Console::readLine)
+                .thenReturn("1");
+
+        // when
+        final GameMenu result = target.inputGameMenu();
+
+        // then
+        assertThat(result).isEqualTo(GameMenu.CONTINUE);
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"23", "4", "2546", "96945"})
+    void 번호를입력하여게임메뉴를반환성공_게임종료하기(final String input) {
+        // given
+        console.when(Console::readLine)
+                .thenReturn(input);
+
+        // when
+        final GameMenu result = target.inputGameMenu();
+
+        // then
+        assertThat(result).isEqualTo(GameMenu.QUIT);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "2[", "a", "25@", "?.X", "add"})
+    void 번호를입력하여게임메뉴를반환실패_정수가아닌입력값(final String input) {
+        // given
+        console.when(Console::readLine)
+                .thenReturn(input);
+
+        // when
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputGameMenu());
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
