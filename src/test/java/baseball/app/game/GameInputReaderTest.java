@@ -52,8 +52,20 @@ class GameInputReaderTest {
     @ValueSource(strings = {"", "23", "4", "2546", "96945"})
     void 번호를입력하여공을반환실패_3개가아닌입력값(final String input) {
         // given
-        final String[] inputs = input.split("");
+        console.when(Console::readLine)
+                .thenReturn(input);
 
+        // when
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+
+        // then
+        result.isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2[", "a", "25@", "?.X", "add"})
+    void 번호를입력하여공을반환실패_정수가아닌입력값(final String input) {
+        // given
         console.when(Console::readLine)
                 .thenReturn(input);
 
