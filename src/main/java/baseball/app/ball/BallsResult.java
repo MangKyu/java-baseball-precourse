@@ -22,4 +22,23 @@ public class BallsResult {
         return result.get(status);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder();
+        for (final BallJudgeStatus status : BallJudgeStatus.values()) {
+            appendJudgeStatus(stringBuilder, status);
+        }
+
+        return stringBuilder.length() != 0
+                ? stringBuilder.toString()
+                : BallJudgeStatus.NOTHING.getPrintName();
+    }
+
+    private void appendJudgeStatus(final StringBuilder stringBuilder, final BallJudgeStatus status) {
+        final int result = this.result.get(status);
+        if (result != 0 && status.isAppendView()) {
+            stringBuilder.append(result).append(status.getPrintName());
+        }
+    }
+
 }
