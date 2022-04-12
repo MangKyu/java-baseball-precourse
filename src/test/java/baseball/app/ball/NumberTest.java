@@ -7,11 +7,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class BallTest {
+class NumberTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3", "4", "5", "6", "7", "8", "9"})
-    void Ball생성성공(final String input) {
+    void Number생성성공(final String input) {
         // given
 
         // when
@@ -22,24 +22,12 @@ class BallTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"`", "Z", "[", "}", "?"})
-    void Ball생성실패_Integer가아님(final String input) {
+    @ValueSource(ints = {-1, 0, 10, 11})
+    void Number생성실패_1부터9가아닌값(final int input) {
         // given
 
         // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> new Ball(input));
-
-        // then
-        result.isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"-1", "0", "10", "11"})
-    void Ball생성실패_1부터9가아닌값(final String input) {
-        // given
-
-        // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> new Ball(input));
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> new Number(input));
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
