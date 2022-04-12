@@ -1,30 +1,30 @@
-package baseball.app.game;
+package baseball.app.ball.generator;
 
 import baseball.app.ball.Balls;
-import baseball.app.ball.generator.AutoBallsGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ComputerTest {
+class AutoBallsGeneratorTest {
 
-    private Computer computer;
+    private BallsGenerator target;
 
     @BeforeEach
     void init() {
-        computer = new Computer(new AutoBallsGenerator());
+        target = new AutoBallsGenerator();
     }
 
     @Test
-    void 컴퓨터는생성시에Balls를갖는다() {
+    void 임의의Balls를생성함() {
         // given
 
         // when
-        final Balls result = computer.getBalls();
+        final Balls result = target.generate();
 
         // then
         assertThat(result).isNotNull();
     }
+
 
 }

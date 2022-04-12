@@ -7,18 +7,11 @@ public class Balls {
 
     private final List<Ball> ballList;
 
-    public Balls() {
+    public Balls(final List<Ball> ballList) {
         this.ballList = new ArrayList<>();
-    }
-
-    public void add(final String input) {
-        final Ball ball = new Ball(input);
-        add(ball);
-    }
-
-    public void add(final int input) {
-        final Ball ball = new Ball(input);
-        add(ball);
+        for (final Ball ball : ballList) {
+            add(ball);
+        }
     }
 
     private void add(final Ball ball) {

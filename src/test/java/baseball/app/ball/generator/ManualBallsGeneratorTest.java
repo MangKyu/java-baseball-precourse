@@ -1,4 +1,4 @@
-package baseball.app.game;
+package baseball.app.ball.generator;
 
 import baseball.app.ball.Balls;
 import camp.nextstep.edu.missionutils.Console;
@@ -14,14 +14,14 @@ import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class GameInputReaderTest {
+class ManualBallsGeneratorTest {
 
-    private GameInputReader target;
+    private ManualBallsGenerator target;
     private MockedStatic<Console> console;
 
     @BeforeEach
     void init() {
-        target = new GameInputReader();
+        target = new ManualBallsGenerator();
         console = Mockito.mockStatic(Console.class);
     }
 
@@ -40,7 +40,7 @@ class GameInputReaderTest {
                 .thenReturn(input);
 
         // when
-        final Balls result = target.inputBalls();
+        final Balls result = target.generate();
 
         // then
         for (int i = 0; i < MAX_BALL_COUNT; i++) {
@@ -56,7 +56,7 @@ class GameInputReaderTest {
                 .thenReturn(input);
 
         // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.generate());
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
@@ -70,7 +70,7 @@ class GameInputReaderTest {
                 .thenReturn(input);
 
         // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.generate());
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
@@ -84,7 +84,7 @@ class GameInputReaderTest {
                 .thenReturn(input);
 
         // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.generate());
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
@@ -98,7 +98,7 @@ class GameInputReaderTest {
                 .thenReturn(input);
 
         // when
-        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.inputBalls());
+        final AbstractThrowableAssert<?, ? extends Throwable> result = assertThatThrownBy(() -> target.generate());
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);

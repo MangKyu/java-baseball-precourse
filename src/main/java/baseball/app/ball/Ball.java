@@ -6,20 +6,8 @@ public class Ball {
 
     private final Number number;
 
-    public Ball(final int number) {
-        this.number = new Number(number);
-    }
-
-    public Ball(final String input) {
-        this.number = convertToNumber(input);
-    }
-
-    private Number convertToNumber(final String input) {
-        try {
-            return new Number(Integer.parseInt(input));
-        } catch (final NumberFormatException e) {
-            throw new IllegalArgumentException("Input is not an integer: " + input, e);
-        }
+    public Ball(final Number number) {
+        this.number = number;
     }
 
     public int getNumber() {

@@ -11,15 +11,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class NumberTest {
 
     @ParameterizedTest
-    @ValueSource(strings = {"1", "2", "3", "4", "5", "6", "7", "8", "9"})
-    void Number생성성공(final String input) {
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
+    void Number생성성공(final int input) {
         // given
 
         // when
-        final Ball ball = new Ball(input);
+        final Number result = new Number(input);
 
         // then
-        assertThat(ball.getNumber()).isEqualTo(Integer.parseInt(input));
+        assertThat(result.getValue()).isEqualTo(input);
     }
 
     @ParameterizedTest
