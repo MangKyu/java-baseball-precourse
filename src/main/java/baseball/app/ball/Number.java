@@ -11,9 +11,13 @@ public class Number {
 
     public Number(final int value) {
         this.value = value;
-        if (this.value < MIN_NUMBER || this.value > MAX_NUMBER) {
+        if (!inRange()) {
             throw new IllegalArgumentException("Input number is not in range: " + value);
         }
+    }
+
+    private boolean inRange() {
+        return MIN_NUMBER <= this.value && this.value <= MAX_NUMBER;
     }
 
     public int getValue() {

@@ -26,7 +26,6 @@ class BallsResultTest {
         assertThat(target.getCount(BallJudgeStatus.NOTHING)).isEqualTo(0);
     }
 
-
     @Test
     void 값추가및조회성공() {
         // given
@@ -38,6 +37,20 @@ class BallsResultTest {
         assertThat(target.getCount(BallJudgeStatus.STRIKE)).isEqualTo(1);
         assertThat(target.getCount(BallJudgeStatus.BALL)).isEqualTo(0);
         assertThat(target.getCount(BallJudgeStatus.NOTHING)).isEqualTo(0);
+    }
+
+    @Test
+    void 스트라이크3개면게임종료() {
+        // given
+        target.addResult(BallJudgeStatus.STRIKE);
+        target.addResult(BallJudgeStatus.STRIKE);
+        target.addResult(BallJudgeStatus.STRIKE);
+
+        // when
+        final boolean result = target.isComplete();
+
+        // then
+        assertThat(result).isTrue();
     }
 
 }

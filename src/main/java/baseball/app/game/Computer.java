@@ -10,8 +10,8 @@ import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 
 public class Computer {
 
-    private Balls balls;
     private final BallsGenerator ballsGenerator;
+    private Balls balls;
 
     public Computer(final BallsGenerator ballsGenerator) {
         this.ballsGenerator = ballsGenerator;
@@ -28,6 +28,7 @@ public class Computer {
     public boolean isCorrect(final Balls playerBalls) {
         final BallsResult ballsResult = balls.calculateResult(playerBalls);
         GameView.printBallsResult(ballsResult);
-        return ballsResult.getCount(BallJudgeStatus.STRIKE) == MAX_BALL_COUNT;
+
+        return ballsResult.isComplete();
     }
 }

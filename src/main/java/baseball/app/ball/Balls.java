@@ -41,9 +41,13 @@ public class Balls {
             return BallJudgeStatus.NOTHING;
         }
 
-        final int index = ballList.indexOf(targetBall);
-        final Ball ball = ballList.get(index);
+        final Ball ball = findBall(targetBall);
         return ball.judgeStatus(targetBall);
+    }
+
+    private Ball findBall(final Ball targetBall) {
+        final int index = ballList.indexOf(targetBall);
+        return ballList.get(index);
     }
 
 }

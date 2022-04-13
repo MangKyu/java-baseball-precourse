@@ -20,11 +20,15 @@ public class AutoBallsGenerator extends AbstractBallsGenerator {
 
     private List<Integer> createUniqueIntegerList() {
         final Set<Integer> set = new LinkedHashSet<>(MAX_BALL_COUNT);
-        while (set.size() != MAX_BALL_COUNT) {
+        while (isFullyPicked(set)) {
             final int number = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
             set.add(number);
         }
         return new ArrayList<>(set);
+    }
+
+    private boolean isFullyPicked(final Set<Integer> set) {
+        return set.size() != MAX_BALL_COUNT;
     }
 
 }

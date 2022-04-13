@@ -10,12 +10,10 @@ import java.util.List;
 public abstract class AbstractBallsGenerator implements BallsGenerator {
 
     protected Balls createBalls(final List<Integer> integerList) {
-        final List<Number> numberList = convertToNumberList(integerList);
-        final List<Ball> ballList = convertToBallList(numberList);
-        return new Balls(ballList);
+        return new Balls(toBallList(toNumberList(integerList)));
     }
 
-    private List<Number> convertToNumberList(final List<Integer> integerList) {
+    private List<Number> toNumberList(final List<Integer> integerList) {
         final List<Number> numberList = new ArrayList<>(integerList.size());
         for (final Integer value : integerList) {
             numberList.add(new Number(value));
@@ -23,7 +21,7 @@ public abstract class AbstractBallsGenerator implements BallsGenerator {
         return numberList;
     }
 
-    private List<Ball> convertToBallList(final List<Number> numberList) {
+    private List<Ball> toBallList(final List<Number> numberList) {
         final List<Ball> ballList = new ArrayList<>(numberList.size());
         for (int i = 0, numberListSize = numberList.size(); i < numberListSize; i++) {
             final Number value = numberList.get(i);
