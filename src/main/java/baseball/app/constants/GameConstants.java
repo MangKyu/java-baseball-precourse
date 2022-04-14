@@ -1,4 +1,4 @@
-package baseball.constants;
+package baseball.app.constants;
 
 public final class GameConstants {
 

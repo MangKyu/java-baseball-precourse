@@ -2,7 +2,7 @@ package baseball.app.ball;
 
 import java.util.Objects;
 
-import static baseball.constants.GameConstants.MAX_BALL_COUNT;
+import static baseball.app.constants.GameConstants.MAX_BALL_COUNT;
 
 public class Ball {
 

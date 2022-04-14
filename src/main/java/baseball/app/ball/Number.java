@@ -2,8 +2,8 @@ package baseball.app.ball;
 
 import java.util.Objects;
 
-import static baseball.constants.GameConstants.MAX_NUMBER;
-import static baseball.constants.GameConstants.MIN_NUMBER;
+import static baseball.app.constants.GameConstants.MAX_NUMBER;
+import static baseball.app.constants.GameConstants.MIN_NUMBER;
 
 public class Number {
 

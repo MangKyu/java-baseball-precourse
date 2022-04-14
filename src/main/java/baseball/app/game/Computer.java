@@ -1,12 +1,9 @@
 package baseball.app.game;
 
-import baseball.app.ball.BallJudgeStatus;
 import baseball.app.ball.Balls;
 import baseball.app.ball.BallsResult;
 import baseball.app.ball.generator.BallsGenerator;
 import baseball.app.printer.GameView;
-
-import static baseball.constants.GameConstants.MAX_BALL_COUNT;
 
 public class Computer {
 

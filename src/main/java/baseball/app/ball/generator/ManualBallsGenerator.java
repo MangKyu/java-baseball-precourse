@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-import static baseball.constants.GameConstants.MAX_BALL_COUNT;
+import static baseball.app.constants.GameConstants.MAX_BALL_COUNT;
 
 public class ManualBallsGenerator extends AbstractBallsGenerator {
 

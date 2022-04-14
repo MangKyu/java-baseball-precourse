@@ -23,8 +23,7 @@ public class Player {
 
         final String input = Console.readLine();
         try {
-            final int menu = Integer.parseInt(input);
-            return GameMenu.of(menu);
+            return GameMenu.of(Integer.parseInt(input));
         } catch (final NumberFormatException e) {
             throw new IllegalArgumentException("Input is not an integer: " + input, e);
         }

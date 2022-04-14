@@ -32,9 +32,9 @@ class ComputerTest {
     @Test
     void prepareGame호출후에Balls를갖는다() {
         // given
+        computer.prepareGame();
 
         // when
-        computer.prepareGame();
         final Balls result = computer.getBalls();
 
         // then
@@ -46,9 +46,9 @@ class ComputerTest {
         // given
         computer.prepareGame();
         final Balls firstBall = computer.getBalls();
+        computer.prepareGame();
 
         // when
-        computer.prepareGame();
         final Balls result = computer.getBalls();
 
         // then
