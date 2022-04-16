@@ -2,6 +2,7 @@ package baseball.app.game;
 
 import baseball.app.ball.Balls;
 import baseball.app.ball.generator.ManualBallsGenerator;
+import baseball.app.participant.Player;
 import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.AbstractThrowableAssert;
 import org.junit.jupiter.api.AfterEach;
@@ -12,7 +13,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import static baseball.app.constants.GameConstants.MAX_BALL_COUNT;
+import static baseball.app.ball.constants.GameConstants.MAX_BALL_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 

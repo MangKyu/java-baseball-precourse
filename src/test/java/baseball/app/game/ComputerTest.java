@@ -2,6 +2,7 @@ package baseball.app.game;
 
 import baseball.app.ball.Balls;
 import baseball.app.ball.generator.AutoBallsGenerator;
+import baseball.app.participant.Computer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

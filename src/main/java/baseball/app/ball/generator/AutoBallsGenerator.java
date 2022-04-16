@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import static baseball.app.constants.GameConstants.*;
+import static baseball.app.ball.constants.GameConstants.*;
 
 public class AutoBallsGenerator extends AbstractBallsGenerator {
 

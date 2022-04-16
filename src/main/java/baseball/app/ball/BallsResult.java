@@ -3,7 +3,7 @@ package baseball.app.ball;
 import java.util.HashMap;
 import java.util.Map;
 
-import static baseball.app.constants.GameConstants.MAX_BALL_COUNT;
+import static baseball.app.ball.constants.GameConstants.MAX_BALL_COUNT;
 
 public class BallsResult {
 

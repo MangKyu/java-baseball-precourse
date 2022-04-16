@@ -1,6 +1,8 @@
 package baseball.app.game;
 
 import baseball.app.ball.Balls;
+import baseball.app.participant.Computer;
+import baseball.app.participant.Player;
 import baseball.app.view.GameView;
 
 public class Game {

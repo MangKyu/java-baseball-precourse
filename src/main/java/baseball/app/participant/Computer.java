@@ -1,4 +1,4 @@
-package baseball.app.game;
+package baseball.app.participant;
 
 import baseball.app.ball.Balls;
 import baseball.app.ball.BallsResult;
