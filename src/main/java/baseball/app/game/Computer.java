@@ -3,7 +3,7 @@ package baseball.app.game;
 import baseball.app.ball.Balls;
 import baseball.app.ball.BallsResult;
 import baseball.app.ball.generator.BallsGenerator;
-import baseball.app.printer.GameView;
+import baseball.app.view.GameView;
 
 public class Computer {
 

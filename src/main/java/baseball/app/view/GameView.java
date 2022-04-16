@@ -1,4 +1,4 @@
-package baseball.app.printer;
+package baseball.app.view;
 
 import baseball.app.ball.BallsResult;
 

@@ -1,7 +1,7 @@
 package baseball.app.game;
 
 import baseball.app.ball.Balls;
-import baseball.app.printer.GameView;
+import baseball.app.view.GameView;
 
 public class Game {
 
