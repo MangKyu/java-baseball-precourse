@@ -3,8 +3,6 @@ package baseball.app.ball;
 import java.util.HashMap;
 import java.util.Map;
 
-import static baseball.app.ball.constants.GameConstants.MAX_BALL_COUNT;
-
 public class BallsResult {
 
     private final Map<BallJudgeStatus, Integer> result;
@@ -47,7 +45,4 @@ public class BallsResult {
         return result != 0 && status.isAppendView();
     }
 
-    public boolean isComplete() {
-        return getCount(BallJudgeStatus.STRIKE) == MAX_BALL_COUNT;
-    }
 }

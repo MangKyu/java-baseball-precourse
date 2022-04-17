@@ -39,18 +39,4 @@ class BallsResultTest {
         assertThat(target.getCount(BallJudgeStatus.NOTHING)).isEqualTo(0);
     }
 
-    @Test
-    void 스트라이크3개면게임종료() {
-        // given
-        target.addResult(BallJudgeStatus.STRIKE);
-        target.addResult(BallJudgeStatus.STRIKE);
-        target.addResult(BallJudgeStatus.STRIKE);
-
-        // when
-        final boolean result = target.isComplete();
-
-        // then
-        assertThat(result).isTrue();
-    }
-
 }

@@ -1,6 +1,7 @@
 package baseball.app.game;
 
 import baseball.app.ball.Balls;
+import baseball.app.ball.BallsResult;
 import baseball.app.ball.generator.AutoBallsGenerator;
 import baseball.app.participant.Computer;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,28 +58,16 @@ class ComputerTest {
     }
 
     @Test
-    void 정답이맞는지확인_맞음() {
+    void 게임결과를얻음() {
         // given
         computer.prepareGame();
         final Balls firstBall = computer.getBalls();
 
         // when
-        final boolean result = computer.isCorrect(firstBall);
+        final BallsResult result = computer.getBallsResult(firstBall);
 
         // then
-        assertThat(result).isTrue();
-    }
-
-    @Test
-    void 정답이맞는지확인_틀림() {
-        // given
-        computer.prepareGame();
-
-        // when
-        final boolean result = computer.isCorrect(new Balls(new ArrayList<>()));
-
-        // then
-        assertThat(result).isFalse();
+        assertThat(result).isNotNull();
     }
 
 }

@@ -3,7 +3,6 @@ package baseball.app.participant;
 import baseball.app.ball.Balls;
 import baseball.app.ball.generator.BallsGenerator;
 import baseball.app.game.GameMenu;
-import baseball.app.view.GameView;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Player {
@@ -15,13 +14,10 @@ public class Player {
     }
 
     public Balls inputBalls() {
-        GameView.printInputNumber();
         return ballsGenerator.generate();
     }
 
     public GameMenu inputGameMenu() {
-        GameView.printMenu();
-
         final String input = Console.readLine();
         try {
             return GameMenu.of(Integer.parseInt(input));
